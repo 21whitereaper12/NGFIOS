@@ -2,12 +2,12 @@ package ngfios.FileExtended;
 
 import ngfios.Exceptions.FileDoesNotExistException;
 import ngfios.FileData.*;
-import ngfios.FileManagement.FileManager;
 import ngfios.ReaderWriter.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class FileExtended extends File {
     private IFileData fileData = null;
@@ -39,10 +39,11 @@ public class FileExtended extends File {
         return this.fileData;
     }
     public IFileData getData() {
-        return this.fileData.;
+        return this.fileData;
     }
-    public IFileData readData() {
+    public IFileData readData() throws IOException {
         this.fileData = this.reader.readData();
+        return this.fileData;
     }
     public FileReader createFileReader() throws FileNotFoundException {
         boolean noException = false;

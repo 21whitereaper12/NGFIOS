@@ -13,12 +13,7 @@ public class FileData implements IFileData{
 	}
 
 	@Override
-	public void lambdaForEachLine(String line) {
-		this.data.set(this.data.size() - 1, line);
-	}
-
-	@Override
 	public void lambdaForEachLine(String line, int lineNumber) {
-		this.data.set(lineNumber, line);
+		this.data.add(lineNumber, line);
 	}
 }

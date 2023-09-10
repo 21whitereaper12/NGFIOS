@@ -16,14 +16,15 @@ public class FileManager {
         files.put("file3.txt", new FileExtended("file3.txt"));
     }
     public static FileManager getInstance(){
-        if (instance != null)
+        if (instance == null)
             instance = new FileManager();
         return instance;
     }
     public FileExtended findOrCreateNewFileOrCacheExisting(String path) throws IOException {
         FileExtended newFile = new FileExtended(path);
         this.files.put(path, newFile);
-        return newFile;
+	    newFile.createNewFile();
+	    return newFile;
     }
     public File getFile(String path) throws IOException {
         if (this.files.containsKey(path))

@@ -17,13 +17,14 @@ public class Reader implements IReader {
 		IFileData data = this.fileExtended.getData();
 		BufferedReader bufferedReader;
 		try {
-			bufferedReader = new BufferedReader(this.fileExtended.)
+			bufferedReader = new BufferedReader(this.fileExtended.createFileReader());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+			return null;
 		}
 		try {
-			for (String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
-				System.out.println(line);
+			for (int i = 0; bufferedReader.ready(); i++) {
+				data.lambdaForEachLine(bufferedReader.readLine(), i);
 			}
 			bufferedReader.close();
 		}
