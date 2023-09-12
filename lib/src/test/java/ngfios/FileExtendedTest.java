@@ -19,7 +19,7 @@ public class FileExtendedTest {
         }
 		
 		@Override
-		public void lambdaForEachLine(String line, int lineNumber) {
+		public void forEachLine(String line, int lineNumber) {
 			this.data[lineNumber] = Integer.parseInt(line);
 		}
 	}
@@ -27,5 +27,6 @@ public class FileExtendedTest {
 	public void testReadingOfFile() throws IOException {
 		FileExtended file = new FileExtended("test.txt", new FourInts());
 		IFileData fileData = file.readData();
+		
 	}
 }
