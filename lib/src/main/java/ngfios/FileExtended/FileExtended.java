@@ -15,11 +15,7 @@ public class FileExtended extends File {
     private IReader reader = null;
     private IWriter writer = null;
     public FileExtended(String path) {
-        super(path);
-        this.reader = new Reader(this);
-        this.writer = new Writer();
-        this.path = path;
-        this.fileData = new FileDataDefault();
+        this(path, new FileDataDefault());
     }
     public FileExtended(String path, IFileData data) {
         super(path);
@@ -29,11 +25,7 @@ public class FileExtended extends File {
         this.fileData = data;
     }
     public FileExtended(File file) {
-        super(file.getPath());
-        this.reader = new Reader(this);
-        this.writer = new Writer();
-        this.path = file.getPath();
-        this.fileData = new FileDataDefault();
+        this(file.getPath(), new FileDataDefault());
     }
     public IFileData getFileData() {
         return this.fileData;
@@ -41,7 +33,7 @@ public class FileExtended extends File {
     public IFileData getData() {
         return this.fileData;
     }
-    public IFileData readData() throws IOException {
+    public IFileData readData(){
         this.fileData = this.reader.readData();
         return this.fileData;
     }
@@ -56,5 +48,8 @@ public class FileExtended extends File {
                     throw new FileNotFoundException(this.path);
             }
         }
+    }
+    public void writeDown(){
+    
     }
 }

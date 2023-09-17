@@ -11,7 +11,7 @@ public class FileDoesNotExistException extends FileNotFoundException {
     }
     public boolean tryToFix(String pathWhereToCreate){
         try {
-            FileManager.getInstance().findOrCreateNewFileOrCacheExisting(pathWhereToCreate);
+            FileManager.getInstance().getFile(pathWhereToCreate);
             return true;
         } catch (IOException e) {
             return false;

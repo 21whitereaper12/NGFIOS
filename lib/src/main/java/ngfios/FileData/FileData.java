@@ -24,7 +24,7 @@ public abstract class FileData implements IFileData {
 		}
 		return fromArrayListToArray(lines);
 	}
-	protected String[] fromArrayListToArray(ArrayList<String> arrayList) {
+	protected String[] fromArrayListToArray(@org.jetbrains.annotations.NotNull ArrayList<String> arrayList) {
 		String[] array = new String[arrayList.size()];
 		for (int i = 0; i < arrayList.size(); i++) {
 			array[i] = arrayList.get(i);

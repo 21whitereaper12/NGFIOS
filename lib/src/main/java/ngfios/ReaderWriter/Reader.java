@@ -13,7 +13,7 @@ public class Reader implements IReader {
 		this.fileExtended = fileExtended;
 	}
 	@Override
-	public IFileData readData() throws IOException {
+	public IFileData readData() {
 		IFileData data = this.fileExtended.getData();
 		BufferedReader bufferedReader;
 		try {
