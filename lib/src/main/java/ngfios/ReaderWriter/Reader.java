@@ -24,7 +24,7 @@ public class Reader implements IReader {
 		}
 		try {
 			for (int i = 0; bufferedReader.ready(); i++) {
-				data.forEachLine(bufferedReader.readLine(), i);
+				data.forEachLineReader(bufferedReader.readLine(), i);
 			}
 			bufferedReader.close();
 		}

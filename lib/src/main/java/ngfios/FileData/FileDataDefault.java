@@ -1,5 +1,6 @@
 package ngfios.FileData;
 
+import java.io.BufferedWriter;
 import java.util.ArrayList;
 
 public class FileDataDefault extends FileData {
@@ -8,7 +9,7 @@ public class FileDataDefault extends FileData {
 		this.data = new ArrayList<>(0);
 	}
 	@Override
-	protected void forEachLineReader(String line, int lineNumber) {
+	public void forEachLineReader(String line, int lineNumber) {
 		try {
 			this.data.set(lineNumber, line);
 		} catch (IndexOutOfBoundsException e) {
@@ -17,17 +18,17 @@ public class FileDataDefault extends FileData {
 	}
 	
 	@Override
-	protected IFileData fullReaderAndParser(String line, int lineNumber) {
+	public IFileData fullReaderAndParser(String line, int lineNumber) {
 		return null;
 	}
 	
 	@Override
-	protected String forEachLineWriter() {
-		return null;
+	public String forEachLineWriter(int lineNumber) {
+		return "";
 	}
 	
 	@Override
-	protected String[] fullWriter() {
-		return new String[0];
+	public void fullWriter(BufferedWriter bw) {
+		return;
 	}
 }

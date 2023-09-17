@@ -19,7 +19,7 @@ public class FileExtended extends File {
         this.reader = new Reader(this);
         this.writer = new Writer();
         this.path = path;
-        this.fileData = new FileData();
+        this.fileData = new FileDataDefault();
     }
     public FileExtended(String path, IFileData data) {
         super(path);
@@ -33,7 +33,7 @@ public class FileExtended extends File {
         this.reader = new Reader(this);
         this.writer = new Writer();
         this.path = file.getPath();
-        this.fileData = new FileData();
+        this.fileData = new FileDataDefault();
     }
     public IFileData getFileData() {
         return this.fileData;

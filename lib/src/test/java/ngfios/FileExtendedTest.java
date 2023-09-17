@@ -5,6 +5,7 @@ import ngfios.FileExtended.FileExtended;
 import ngfios.FileManagement.FileManager;
 import org.junit.jupiter.api.Test;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,14 +20,18 @@ public class FileExtendedTest {
         }
 		
 		@Override
-		public void forEachLine(String line, int lineNumber) {
+		public void forEachLineReader(String line, int lineNumber) {
 			this.data[lineNumber] = Integer.parseInt(line);
 		}
+		@Override
+		public String forEachLineWriter(int lineNumber) {
+			return Integer.toString(this.data[lineNumber]);
+		}
+		
 	}
 	@Test
 	public void testReadingOfFile() throws IOException {
 		FileExtended file = new FileExtended("test.txt", new FourInts());
 		IFileData fileData = file.readData();
-		
 	}
 }
